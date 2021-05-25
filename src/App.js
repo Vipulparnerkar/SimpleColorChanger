@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+ import './App.css';
 
 function App() {
+  const [color,setColor] = useState({
+    co:'brown'
+  })
+  const {co} = color;
+
+  const onChange =e =>{
+    const c = e.target.value;
+    setColor({co: c})
+    
+  }
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main" style={{backgroundColor:`${co}`}}>
+      <div className="App" >
+        <h1 style={{color:"#f7fd04"}}>Color Changer</h1>
+
+        <div >
+          <input type="color" onChange={e => onChange(e)} />
+        </div>
+        
+          
+         
+        
     </div>
+
+      
+    </div>
+    
   );
 }
 
